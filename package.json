@@ -1,0 +1,19 @@
+{
+  "name": "indooratlas-cordova",
+  "version": "1.0.0-dev",
+  "description": "Cordova Indoor Atlas Plugin",
+  "cordova": {
+    "id": "indooratlas-cordova",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "cordova"
+  ],
+  "author": "Winker Foundation",
+  "license": "Winker 1.0",
+  "devDependencies": {
+    "jshint": "^2.6.0"
+  }
+}
