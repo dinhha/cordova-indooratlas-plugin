@@ -1,4 +1,4 @@
-package com.winker.cordovaplugin.IndoorAtlas;
+package com.winker.cordovaplugin;
 
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
