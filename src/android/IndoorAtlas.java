@@ -11,15 +11,15 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 
-import com.indooratlas.android.sdk;
-import com.indooratlas.android.sdk.resources;
+/*import com.indooratlas.android.sdk;
+import com.indooratlas.android.sdk.resources;*/
 
 public class IndoorAtlas extends CordovaPlugin {
 		private static final String TAG = "IndoorAtlas";
     private Activity activity;
-    private IALocationManager mIALocationManager;
+/*    private IALocationManager mIALocationManager;
     private IALocationListener mIALocationListener;
-    /**
+*/    /**
      * Constructor.
      */
     public IndoorAtlas() {
@@ -55,7 +55,8 @@ public class IndoorAtlas extends CordovaPlugin {
     }
 
     private void initIndoorAtlas(CallbackContext callbackContext){
-      mIALocationManager = IALocationManager.create(activity);
+      callbackContext.sucess();
+      /*mIALocationManager = IALocationManager.create(activity);
 
        mIALocationListener = new IALocationListener() {
         @Override
@@ -64,6 +65,6 @@ public class IndoorAtlas extends CordovaPlugin {
           Log.d(TAG, "Latitude: " + location.getLatitude());
           Log.d(TAG, "Longitude: " + location.getLongitude());
         }
-      };
+      };*/
     }
 }
