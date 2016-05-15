@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
 
 import com.indooratlas.android.sdk.*;
 import com.indooratlas.android.sdk.resources.*;
@@ -39,14 +41,12 @@ public class IndoorAtlas extends CordovaPlugin {
      * @param callbackContext   The callback id used when calling back into JavaScript.
      * @return                  True if the action was valid, false if not.
      */
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
       activity = cordova.getActivity();
-      switch(action){
-        case "init":
-          initIndoorAtlas(callbackContext);
-          break;
-
+      if (action.equals("init")){
+        initIndoorAtlas(callbackContext);
       }
+      return true;
     }
 
     @Override
@@ -64,8 +64,12 @@ public class IndoorAtlas extends CordovaPlugin {
           Log.d(TAG, "Latitude: " + location.getLatitude());
           Log.d(TAG, "Longitude: " + location.getLongitude());
         }
+        @Override
+        public void onStatusChanged(String s, int i, Bundle bundle) {
+
+        }
       };
-    activity.runOnUiThread(new Runnable() {
+      activity.runOnUiThread(new Runnable() {
           public void run() {
               callbackContext.success("Ahihi"); // Thread-safe.
           }
