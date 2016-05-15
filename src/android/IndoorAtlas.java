@@ -48,7 +48,12 @@ public class IndoorAtlas extends CordovaPlugin {
 
       if (action.equals("init")){
         initIndoorAtlas();
+      }else if (action.equals("getCurrentLocation")){
+        requestUpdateLocation();
+        callback.success("request location update");
       }
+
+
       return true;
     }
 
@@ -77,5 +82,9 @@ public class IndoorAtlas extends CordovaPlugin {
               callback.success("Ahihi"); // Thread-safe.
           }
       });
+    }
+
+    private void requestUpdateLocation(){
+      mIALocationManager.requestLocationUpdates(IALocationRequest.create(), mIALocationListener);
     }
 }
