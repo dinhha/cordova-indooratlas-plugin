@@ -19,7 +19,6 @@
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="IndoorAtlas" >
         <param name="android-package" value="com.winker.IndoorAtlas"/>
-        <param name="onload" value="true"/>
       </feature>
     </config-file>
 
@@ -27,7 +26,7 @@
 
     <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
 
-    <config-file target="AndroidManifest.xml" parent="/manifest">
+    <!-- <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
       <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
       <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -37,7 +36,7 @@
       <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true" />
       <uses-feature android:name="android.hardware.wifi" android:required="true" />
 
-    </config-file>
+    </config-file> -->
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
       <meta-data android:name="com.indooratlas.android.sdk.API_KEY" android:value="5b37bc41-9443-4246-9386-65d32b1413e8"/>
