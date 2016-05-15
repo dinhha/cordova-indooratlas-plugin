@@ -1,3 +1,4 @@
+cordova = require('cordova');
 
 function IndoorAtlas() {
 

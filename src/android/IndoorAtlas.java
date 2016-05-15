@@ -21,6 +21,7 @@ public class IndoorAtlas extends CordovaPlugin {
     private Activity activity;
     private IALocationManager mIALocationManager;
     private IALocationListener mIALocationListener;
+    private CallbackContext callback;
     /**
      * Constructor.
      */
@@ -43,8 +44,10 @@ public class IndoorAtlas extends CordovaPlugin {
      */
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
       activity = cordova.getActivity();
+      callback = callbackContext;
+
       if (action.equals("init")){
-        initIndoorAtlas(callbackContext);
+        initIndoorAtlas();
       }
       return true;
     }
@@ -54,13 +57,13 @@ public class IndoorAtlas extends CordovaPlugin {
       activity = cordova.getActivity();
     }
 
-    private void initIndoorAtlas(CallbackContext callbackContext){      
+    private void initIndoorAtlas(){      
       mIALocationManager = IALocationManager.create(activity);
 
        mIALocationListener = new IALocationListener() {
         @Override
         public void onLocationChanged(IALocation location) {
-          callbackContext.success("lat: " + location.getLatitude() + "; lng: " + location.getLongitude());
+          callback.success("lat: " + location.getLatitude() + "; lng: " + location.getLongitude());
           Log.d(TAG, "Latitude: " + location.getLatitude());
           Log.d(TAG, "Longitude: " + location.getLongitude());
         }
@@ -71,7 +74,7 @@ public class IndoorAtlas extends CordovaPlugin {
       };
       activity.runOnUiThread(new Runnable() {
           public void run() {
-              callbackContext.success("Ahihi"); // Thread-safe.
+              callback.success("Ahihi"); // Thread-safe.
           }
       });
     }
