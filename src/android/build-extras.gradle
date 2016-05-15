@@ -1,0 +1,8 @@
+dependencies {
+	compile 'com.indooratlas.android:indooratlas-android-sdk:2.1.2@aar'
+}
+repositories{
+	maven {
+		url "http://indooratlas-ltd.bintray.com/mvn-public"
+	}
+}

@@ -11,15 +11,15 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 
-/*import com.indooratlas.android.sdk;
-import com.indooratlas.android.sdk.resources;*/
+import com.indooratlas.android.sdk.*;
+import com.indooratlas.android.sdk.resources.*;
 
 public class IndoorAtlas extends CordovaPlugin {
 		private static final String TAG = "IndoorAtlas";
     private Activity activity;
-/*    private IALocationManager mIALocationManager;
+    private IALocationManager mIALocationManager;
     private IALocationListener mIALocationListener;
-*/    /**
+    /**
      * Constructor.
      */
     public IndoorAtlas() {
@@ -54,17 +54,21 @@ public class IndoorAtlas extends CordovaPlugin {
       activity = cordova.getActivity();
     }
 
-    private void initIndoorAtlas(CallbackContext callbackContext){
-      callbackContext.sucess();
-      /*mIALocationManager = IALocationManager.create(activity);
+    private void initIndoorAtlas(CallbackContext callbackContext){      
+      mIALocationManager = IALocationManager.create(activity);
 
        mIALocationListener = new IALocationListener() {
         @Override
         public void onLocationChanged(IALocation location) {
-          callbackContext.sucess();
+          callbackContext.success("lat: " + location.getLatitude() + "; lng: " + location.getLongitude());
           Log.d(TAG, "Latitude: " + location.getLatitude());
           Log.d(TAG, "Longitude: " + location.getLongitude());
         }
-      };*/
+      };
+    activity.runOnUiThread(new Runnable() {
+          public void run() {
+              callbackContext.success("Ahihi"); // Thread-safe.
+          }
+      });
     }
 }

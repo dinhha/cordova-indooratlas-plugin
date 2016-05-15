@@ -4,10 +4,10 @@
   xmlns:rim="http://www.blackberry.com/ns/widgets"
   xmlns:android="http://schemas.android.com/apk/res/android"
   id="indooratlas-cordova"
-  version="1.1.3-dev">
+  version="1.0.0-dev">
   <name>Indoor Atlas</name>
   <description>Cordova Indoor Atlas Plugin</description>
-  <license>Apache 2.0</license>
+  <license>Winker</license>
   <keywords>cordova,indooratlas</keywords>
 
   <js-module src="www/indoorAtlas.js" name="indoorAtlas">
@@ -25,7 +25,7 @@
 
     <source-file src="src/android/IndoorAtlas.java" target-dir="src/com/winker/cordovaplugin" />
 
-    <lib-file src="libs/indooratlas-android-sdk-2.1.2.jar"/>
+    <framework src="src/android/build-extras.gradle" custom="true" type="gradleReference" />
 
     <config-file target="AndroidManifest.xml" parent="/manifest">
       <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
