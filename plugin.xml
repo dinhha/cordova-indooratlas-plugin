@@ -18,7 +18,7 @@
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="IndoorAtlas" >
-        <param name="android-package" value="com.winker.IndoorAtlas"/>
+        <param name="android-package" value="com.winker.cordovaplugin.IndoorAtlas"/>
       </feature>
     </config-file>
 
